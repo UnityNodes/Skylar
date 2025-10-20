@@ -1,0 +1,191 @@
+/* Overlay для модального окна */
+.rewards-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+/* Контент модального окна */
+.rewards-modal-content {
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(16, 21, 62, 0.95) 100%);
+  border: 3px solid rgba(138, 43, 226, 0.6);
+  border-radius: 20px;
+  box-shadow: 0 0 50px rgba(138, 43, 226, 0.5);
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Заголовок модального окна */
+.rewards-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 30px 20px 30px;
+  border-bottom: 2px solid rgba(138, 43, 226, 0.3);
+}
+
+.rewards-modal-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  text-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
+}
+
+/* Кнопка закрытия */
+.rewards-modal-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.rewards-modal-close:hover {
+  background: rgba(138, 43, 226, 0.3);
+  transform: scale(1.1);
+}
+
+/* Тело модального окна */
+.rewards-modal-body {
+  padding: 30px;
+}
+
+/* Сетка для наград */
+.rewards-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Элемент награды */
+.reward-modal-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  min-width: 120px;
+}
+
+/* Цвета для разных редкостей */
+.reward-modal-item.common {
+  background: rgba(128, 128, 128, 0.2);
+  border: 2px solid rgba(128, 128, 128, 0.5);
+}
+
+.reward-modal-item.rare {
+  background: rgba(0, 123, 255, 0.2);
+  border: 2px solid rgba(0, 123, 255, 0.5);
+}
+
+.reward-modal-item.unique {
+  background: rgba(138, 43, 226, 0.2);
+  border: 2px solid rgba(138, 43, 226, 0.5);
+}
+
+.reward-modal-item.legendary {
+  background: rgba(255, 193, 7, 0.2);
+  border: 2px solid rgba(255, 193, 7, 0.5);
+}
+
+.reward-modal-item.mythic {
+  background: rgba(220, 53, 69, 0.2);
+  border: 2px solid rgba(220, 53, 69, 0.5);
+}
+
+/* Эффект при наведении */
+.reward-modal-item:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.reward-modal-item.common:hover {
+  box-shadow: 0 10px 25px rgba(128, 128, 128, 0.4);
+}
+
+.reward-modal-item.rare:hover {
+  box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4);
+}
+
+.reward-modal-item.unique:hover {
+  box-shadow: 0 10px 25px rgba(138, 43, 226, 0.4);
+}
+
+.reward-modal-item.legendary:hover {
+  box-shadow: 0 10px 25px rgba(255, 193, 7, 0.4);
+}
+
+.reward-modal-item.mythic:hover {
+  box-shadow: 0 10px 25px rgba(220, 53, 69, 0.4);
+}
+
+/* Изображение награды */
+.reward-modal-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
+}
+
+/* Текст награды */
+.reward-modal-text {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Анимация появления модального окна */
+.rewards-modal-overlay {
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+.rewards-modal-content {
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

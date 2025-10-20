@@ -1,0 +1,83 @@
+.possible-rewards {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(15px, 3vw, 30px);
+  padding: 20px;
+  margin: 40px auto 0 auto;
+  width: 100%;
+  max-width: 900px;
+}
+
+.possible-rewards-title {
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  text-align: left;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  transform: translateY(5px);
+}
+
+.possible-rewards-images {
+  display: flex;
+  gap: clamp(8px, 1.5vw, 20px);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  transform: translateY(20px);
+}
+
+.possible-rewards-item {
+  position: relative;
+  transition: transform 0.3s;
+  flex: 0 1 auto;
+}
+
+.possible-rewards-item:hover {
+  transform: scale(1.1);
+}
+
+.possible-rewards-image {
+  width: clamp(55px, 6vw, 100px);
+  height: clamp(55px, 6vw, 100px);
+  object-fit: contain;
+  display: block;
+}
+
+.possible-rewards-text {
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  color: white;
+  padding: clamp(2px, 0.5vw, 4px) clamp(4px, 1vw, 8px);
+  border-radius: 4px;
+  font-size: clamp(10px, 1.2vw, 12px);
+  font-weight: bold;
+  white-space: nowrap;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Стили для страницы Case Selector */
+.possible-rewards-case-selector {
+  align-items: flex-start;
+}
+
+.possible-rewards-case-selector .possible-rewards-image {
+  width: clamp(70px, 8vw, 110px);
+  height: clamp(70px, 8vw, 110px);
+}
+
+.possible-rewards-case-selector .possible-rewards-images {
+  margin-top: 8px;
+}
+
+/* Стили для страницы Open Case */
+.possible-rewards-open-case {
+  bottom: 40px;
+}

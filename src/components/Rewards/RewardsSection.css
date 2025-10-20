@@ -1,0 +1,126 @@
+.rewards-section {
+  position: fixed;
+  top: calc(50% + 220px);
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 1600px;
+  margin: 0;
+  padding: 0;
+  z-index: 100;
+}
+
+.rewards-title {
+  font-size: clamp(24px, 2.5vw, 36px);
+  font-weight: bold;
+  color: white;
+  margin-bottom: clamp(10px, 1.5vw, 20px);
+  text-align: left;
+}
+
+.rewards-images {
+  display: flex;
+  gap: clamp(20px, 3vw, 50px);
+  justify-content: center;
+  align-items: center;
+}
+
+.rarity-item {
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.rarity-item:hover {
+  transform: scale(1.1);
+}
+
+
+
+/* ===========================
+   Десктопные стили
+   =========================== */
+@media (min-width: 457px) {
+  .rewards-section .rarity-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+}
+
+.rarity-text {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* ===========================
+   Мобильные стили для планшетов
+   =========================== */
+@media (max-width: 456px) {
+  /* Секция наград фиксируется внизу экрана */
+  .rewards-section {
+    position: fixed !important; /* фиксируем блок */
+    top: auto !important; /* убираем top позиционирование */
+    bottom: 40px !important; /* отступ от низа (высота фиксированного футера 30px + 10px зазор) */
+    left: 50% !important; /* центрируем по горизонтали */
+    transform: translateX(-50%) !important; /* точное центрирование */
+    width: 100% !important; /* почти вся ширина экрана */
+    max-width: none !important; /* снимаем ограничение максимальной ширины */
+    padding: 0 10px !important; /* внутренние отступы по бокам */
+    z-index: 100; /* выше других элементов */
+  }
+
+  /* Заголовок наград */
+  .rewards-title {
+    font-size: 15px; /* размер шрифта */
+    text-align: left; /* центр текста */
+    margin-bottom: -18px; /* отступ снизу */
+  }
+
+  /* Контейнер для изображений наград */
+  .rewards-images {
+    display: flex; /* flex-контейнер */
+    gap: 2px; /* промежуток между элементами */
+    justify-content: center; /* выравнивание по центру */
+    align-items: center; /* выравнивание по вертикали */
+    flex-wrap: nowrap; /* запрещаем перенос */
+    padding: 8px 10px; /* внутренние отступы */
+  }
+
+  /* Отдельный элемент награды */
+  .rarity-item {
+    flex-shrink: 0; /* элемент не сжимается */
+    min-width: 70px; /* минимальная ширина */
+    padding: 4px; /* внутренние отступы */
+    border-radius: 6px; /* скругленные углы */
+    background: transparent; /* убираем фон */
+    pointer-events: none; /* отключаем взаимодействие */
+  }
+
+  /* Изображение награды */
+  .rewards-section  .rarity-image {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+  /* Текст под изображением */
+   .rarity-text {
+    font-size: 12px; /* размер шрифта */
+    padding: 2px 4px; /* внутренние отступы */
+    bottom: 5px; /* смещение снизу */
+    font-weight: 400; /* жирность шрифта */
+   }
+}

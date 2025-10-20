@@ -1,0 +1,160 @@
+.roulette-item {
+  min-width: 120px;
+  width: 120px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.item-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.rarity-image {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  z-index: 10;
+}
+
+.coin-value {
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  text-align: center;
+  z-index: 10;
+  position: relative;
+}
+
+
+
+.lightning-effects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.lightning {
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, #ffd700, transparent);
+  opacity: 0.6;
+  animation: lightning 2s ease-in-out infinite;
+}
+
+.lightning-1 {
+  height: 60%;
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.lightning-2 {
+  height: 70%;
+  top: 15%;
+  right: 25%;
+  animation-delay: 0.7s;
+}
+
+.lightning-3 {
+  height: 50%;
+  bottom: 20%;
+  left: 60%;
+  animation-delay: 1.4s;
+}
+
+@keyframes lightning {
+
+  0%,
+  90%,
+  100% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+
+  5%,
+  85% {
+    opacity: 0.8;
+    transform: scaleY(1);
+  }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 456px) {
+  .roulette-item {
+    min-width: 120px;
+    width: 120px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+    overflow: visible;
+  }
+
+  .rarity-image {
+  transform: scale(1);
+}
+  .coin-value {
+    font-size: 10px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    z-index: 10;
+    position: relative;
+  }
+
+  .lightning-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+
+  .lightning {
+    position: absolute;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, #ffd700, transparent);
+    opacity: 0.5;
+    animation: lightning 2s ease-in-out infinite;
+  }
+
+  .lightning-1 {
+    height: 50%;
+    top: 15%;
+    left: 25%;
+    animation-delay: 0s;
+  }
+
+  .lightning-2 {
+    height: 60%;
+    top: 20%;
+    right: 30%;
+    animation-delay: 0.7s;
+  }
+
+  .lightning-3 {
+    height: 40%;
+    bottom: 25%;
+    left: 65%;
+    animation-delay: 1.4s;
+  }
+}
