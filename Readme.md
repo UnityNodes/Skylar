@@ -1,7 +1,7 @@
 # 🎲 Skylar: Decentralized, Rust-Based Gaming Smart Contract
 
 **Overview**
-Skylar Roulette is a decentralized, roulette-inspired smart contract written entirely in Rust. It serves as a robust demonstration of how highly interactive, blockchain-based games can be built with **transparency**, **provable fairness**, and **automation** at their core. Beyond its function as a proof of concept, the project is structured to lay the groundwork for future integration with the Linera blockchain, enabling a path toward fast, scalable, and real-time gameplay.
+Skylar is a decentralized, roulette-inspired smart contract written entirely in Rust. It serves as a robust demonstration of how highly interactive, blockchain-based games can be built with **transparency**, **provable fairness**, and **automation** at their core. Beyond its function as a proof of concept, the project is structured to lay the groundwork for future integration with the Linera blockchain, enabling a path toward fast, scalable, and real-time gameplay.
 
 ---
 
