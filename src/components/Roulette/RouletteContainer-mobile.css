@@ -1,0 +1,273 @@
+/* ========================================
+   МОБИЛЬНЫЕ СТИЛИ ДЛЯ РУЛЕТКИ
+   Точные параметры из оригинального файла
+   ======================================== */
+
+@media (max-width: 456px) {
+
+  /* ========================================
+     БАЗОВАЯ СТРЕЛКА (x3) - ТОЧЬ-В-ТОЧЬ
+     ======================================== */
+  .roulette-pointer {
+    position: absolute;
+    top: 18px;
+    left: calc(50%);
+    transform: translateX(-50%);
+    width: 5px;
+    height: 74%;
+    background: linear-gradient(to top, white 0%, #7365DE 100%);
+    border-radius: 5px;
+    z-index: 1;
+    box-shadow:
+      0 0 10px rgba(115, 101, 222, 0.5),
+      0 0 20px rgba(115, 101, 222, 0.5);
+  }
+
+  .roulette-pointer::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: calc(50%);
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 0px solid transparent;
+    border-right: 0px solid transparent;
+    border-top: 0px solid #7365DE;
+    filter: drop-shadow(0 0 5px rgba(115, 101, 222, 0.8));
+    z-index: 1;
+  }
+
+  .roulette-pointer::after {
+    display: none;
+  }
+
+  /* ========================================
+     СТРЕЛКА ДЛЯ x1 РУЛЕТОК - ОТДЕЛЬНЫЕ ПАРАМЕТРЫ
+     ======================================== */
+  .multiplier-1 .roulette-pointer {
+    position: absolute;
+    top: 3px;
+    /* ПАРАМЕТР ДЛЯ ПОДТЯГИВАНИЯ ПОЛОСКИ ВВЕРХ: уменьшите значение (15px, 10px, 5px, 0px) чтобы подтянуть вверх */
+    left: calc(50%);
+    transform: translateX(0%);
+    width: 5px;
+    height: 94%;
+    background: linear-gradient(to top, white 0%, #7365DE 100%);
+    border-radius: 5px;
+    z-index: 1;
+    box-shadow:
+      0 0 10px rgba(115, 101, 222, 0.5),
+      0 0 20px rgba(115, 101, 222, 0.5);
+  }
+
+  .multiplier-1 .roulette-pointer::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: calc(50%);
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 0px solid transparent;
+    border-right: 0px solid transparent;
+    border-top: 0px solid #7365DE;
+    filter: drop-shadow(0 0 5px rgba(115, 101, 222, 0.8));
+    z-index: 1;
+  }
+
+  .multiplier-1 .roulette-pointer::after {
+    display: none;
+  }
+
+  /* ========================================
+     СТРЕЛКА ДЛЯ x2 РУЛЕТОК - ОТДЕЛЬНЫЕ ПАРАМЕТРЫ
+     ======================================== */
+  .multiplier-2 .roulette-pointer {
+    position: absolute;
+    top: 3px;
+    /* ПАРАМЕТР ДЛЯ ПОДТЯГИВАНИЯ ПОЛОСКИ ВВЕРХ: уменьшите значение (15px, 10px, 5px, 0px) чтобы подтянуть вверх */
+    left: calc(50%);
+    transform: translateX(-50%);
+    width: 5px;
+    height: 94%;
+    background: linear-gradient(to top, white 0%, #7365DE 100%);
+    border-radius: 5px;
+    z-index: 1;
+    box-shadow:
+      0 0 10px rgba(115, 101, 222, 0.5),
+      0 0 20px rgba(115, 101, 222, 0.5);
+  }
+
+  .multiplier-2 .roulette-pointer::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: calc(50%);
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 0px solid transparent;
+    border-right: 0px solid transparent;
+    border-top: 0px solid #7365DE;
+    filter: drop-shadow(0 0 5px rgba(115, 101, 222, 0.8));
+    z-index: 1;
+  }
+
+  .multiplier-2 .roulette-pointer::after {
+    display: none;
+  }
+
+  /* ========================================
+     СТРЕЛКА ДЛЯ x4 РУЛЕТОК - ТОЧЬ-В-ТОЧЬ
+     ======================================== */
+  .multiplier-4 .roulette-pointer {
+    position: absolute;
+    top: 11px;
+    /* ПАРАМЕТР ДЛЯ ПОДТЯГИВАНИЯ ПОЛОСКИ ВВЕРХ: уменьшите значение (10px, 5px, 0px, -5px) чтобы подтянуть вверх */
+    left: calc(50%);
+    transform: translateX(-50%);
+    width: 5px;
+    height: 82%;
+    background: linear-gradient(to top, white 0%, #7365DE 100%);
+    border-radius: 5px;
+    z-index: 1;
+    box-shadow:
+      0 0 10px rgba(115, 101, 222, 0.5),
+      0 0 20px rgba(115, 101, 222, 0.5);
+  }
+
+  .multiplier-4 .roulette-pointer::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: calc(50%);
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 0px solid transparent;
+    border-right: 0px solid transparent;
+    border-top: 0px solid #7365DE;
+    filter: drop-shadow(0 0 5px rgba(115, 101, 222, 0.8));
+    z-index: 1;
+  }
+
+  .multiplier-4 .roulette-pointer::after {
+    display: none;
+  }
+
+  /* ========================================
+     СТРЕЛКА ДЛЯ x5 РУЛЕТОК - ТОЧЬ-В-ТОЧЬ
+     ======================================== */
+  .multiplier-5 .roulette-pointer {
+    position: absolute;
+    top: -1px;
+    /* ПАРАМЕТР ДЛЯ ПОДТЯГИВАНИЯ ПОЛОСКИ ВВЕРХ: уменьшите значение (10px, 5px, 0px, -5px) чтобы подтянуть вверх */
+    left: calc(50%);
+    transform: translateX(-50%);
+    width: 5px;
+    height: calc(100% + 1px);
+    background: linear-gradient(to top, white 0%, #7365DE 100%);
+    border-radius: 5px;
+    z-index: 1;
+    box-shadow:
+      0 0 10px rgba(115, 101, 222, 0.5),
+      0 0 20px rgba(115, 101, 222, 0.5);
+  }
+
+  .multiplier-5 .roulette-pointer::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: calc(50%);
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 0px solid transparent;
+    border-right: 0px solid transparent;
+    border-top: 0px solid #7365DE;
+    filter: drop-shadow(0 0 5px rgba(115, 101, 222, 0.8));
+    z-index: 1;
+  }
+
+  .multiplier-5 .roulette-pointer::after {
+    display: none;
+  }
+
+  /* ========================================
+     МОБИЛЬНЫЕ СТИЛИ ДЛЯ TOOLTIP
+     Изменение направления с вверх на вправо
+     ======================================== */
+
+  /* Основной tooltip контейнер */
+  .custom-tooltip {
+    position: absolute;
+    bottom: auto !important;
+    left: calc(100% + 15px) !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.95) 0%, rgba(153, 50, 204, 0.95) 100%);
+    border: 2px solid rgba(138, 43, 226, 0.8);
+    border-radius: 12px;
+    padding: 8px 16px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+    box-shadow:
+      0 0 20px rgba(138, 43, 226, 0.6),
+      0 6px 16px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    animation: tooltipFadeIn 0.3s ease-out;
+    min-width: 100px;
+  }
+
+  /* Стрелка tooltip - направление влево */
+  .custom-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 50% !important;
+    left: -10px !important;
+    transform: translateY(-50%) !important;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent !important;
+    border-bottom: 8px solid transparent !important;
+    border-right: 10px solid rgba(138, 43, 226, 0.8) !important;
+    border-left: none !important;
+    filter: drop-shadow(-2px 0 4px rgba(0, 0, 0, 0.3));
+  }
+
+  /* Стили для элементов внутри tooltip */
+  .tooltip-label {
+    color: rgba(255, 255, 255, 0.8);
+    margin-right: 4px;
+    font-size: 13px;
+  }
+
+  .tooltip-amount {
+    color: #ffffff;
+    font-weight: 700;
+    margin-right: 3px;
+    font-size: 14px;
+  }
+
+  .tooltip-currency {
+    color: #ffd700;
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .tooltip-signin {
+    display: none !important;
+  }
+
+  /* Скрываем весь tooltip если в нем только "Sign in to see cost" */
+  .custom-tooltip:has(.tooltip-signin) {
+    display: none !important;
+  }
+
+}

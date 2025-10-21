@@ -1,0 +1,438 @@
+.leaderboard-container {
+    padding: 10px 60px;
+    width: 80%;
+    margin: 0 auto;
+    height: calc(100vh - 177px); /* Фиксорованнаяавыся аодзда/азм  dэкplaаflex;
+    flex-direction: column;
+    overflow: hidden; /* Убираем переполнение контейнера */
+}
+
+.leaderboard-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.leaderboard-title {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.season-title {
+    max-width: 100%;
+    height: auto;
+    margin: 10px auto 0 auto;
+    display: block;
+    opacity: 0.9;
+}
+
+.top-players {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+    /* еще больше уменьшил отступ до 10px */
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+}
+
+.top-player-card {
+    background: rgba(138, 43, 226, 0);
+    /* фон 100% прозрачный */
+    border: 2px solid rgba(138, 43, 226, 0);
+    /* рамка 100% прозрачная */
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    width: 280px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    /* убрал transition анимацию */
+}
+
+/* убрал hover эффект для карточек топ-5 */
+
+
+.player-avatar-container {
+    position: relative;
+    /* чтобы потомки позиционировались внутри */
+    margin: 0 auto 20px;
+    width: 120px;
+    /* увеличиваем ширину для венков */
+    height: 62px;
+    /* уменьшено на 10% с 69px */
+    isolation: isolate;
+    /* создаем новый stacking context */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-avatar {
+    position: relative;
+    z-index: 3;
+    width: 59px;
+    /* уменьшено на 10% с 65px */
+    height: 62px;
+    /* уменьшено на 10% с 69px */
+}
+
+.wreath-left,
+.wreath-right {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 9999;
+    top: 20%;
+    /* поднимаем выше */
+    transform: translateY(-50%);
+}
+
+.wreath-left {
+    left: 10px;
+    /* максимально близко к аватару */
+}
+
+.wreath-right {
+    right: 10px;
+    /* максимально близко к аватару */
+    transform: translateY(-50%) scaleX(-1);
+}
+
+.avatar-circle {
+    width: 59px;
+    /* уменьшено на 10% с 65px */
+    height: 62px;
+    /* уменьшено на 10% с 69px */
+    border-radius: 0;
+    border: 3px solid rgba(138, 43, 226, 0.5);
+    background: linear-gradient(45deg, #8a2be2, #9370db);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    /* уменьшил шрифт пропорционально */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.avatar-circle span {
+    transform: none;
+}
+
+.lite-decoration {
+    position: absolute;
+    max-width: 220px;    /* Максимальная ширина */
+    max-height: 220px;    /* Максимальная высота */
+    bottom: -70px;
+    left: -41%;
+    z-index: -9999;
+    /* Максимально отрицательный z-index */
+}
+
+.star-decoration {
+    margin: 0 auto 0;
+    display: block;
+    min-width: 16px;
+    min-height: 16px;
+    opacity: 1;
+    z-index: 10;
+    position: relative;
+    top: -26px;
+    /* Измени это значение для позиционирования по высоте */
+}
+
+.position-badge-image {
+    margin: 2px auto 0;
+    /* еще ближе к аватару */
+    display: block;
+}
+
+.player-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.player-amount {
+    margin-bottom: 10px;
+}
+
+.player-amount .amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.player-amount .currency {
+    font-size: 16px;
+    color: #953FEC;
+    margin-left: 5px;
+}
+
+.player-subtitle {
+    font-size: 14px;
+    color: #888;
+}
+
+.leaderboard-table {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(138, 43, 226, 0.2);
+    flex: 1;
+    overflow-y: auto;
+    max-height: calc(100vh - 300px); /* Ограничиваем высоту чтобы не было скроллера страницы */
+}
+
+/* Кастомный скроллбар */
+.leaderboard-table::-webkit-scrollbar {
+    width: 8px;
+}
+
+.leaderboard-table::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.leaderboard-table::-webkit-scrollbar-thumb {
+    background: rgba(138, 43, 226, 0.6);
+    border-radius: 10px;
+}
+
+.leaderboard-table::-webkit-scrollbar-thumb:hover {
+    background: rgba(138, 43, 226, 0.8);
+}
+
+.table-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(138, 43, 226, 0.1);
+    transition: all 0.3s ease;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.table-row:hover {
+    background: rgba(138, 43, 226, 0.1);
+    border-radius: 10px;
+}
+
+.row-position {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    min-width: 50px;
+}
+
+.row-player {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    margin-left: 20px;
+}
+
+.row-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid rgba(138, 43, 226, 0.3);
+    object-fit: cover;
+    background: linear-gradient(45deg, #8a2be2, #9370db);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.row-name {
+    font-size: 16px;
+    color: white;
+    font-weight: 500;
+}
+
+.row-amount {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.row-amount .amount {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+.row-amount .currency {
+    font-size: 14px;
+    color: #953FEC;
+}/* 
+Styles for avatars in leaderboard */
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.empty-leaderboard {
+    text-align: center;
+    padding: 60px 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    border: 2px solid rgba(149, 63, 236, 0.3);
+    margin: 20px 0;
+}
+
+.row-avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 456px) {
+    .leaderboard-container {
+        width: 100% ;
+        padding: 8px 10px ;
+        height: auto !important; /* Переопределяем десктопную высоту */
+        min-height: auto ;
+        overflow: hidden ;
+    }
+
+    .leaderboard-header {
+        margin-bottom: 15px;
+    }
+
+    .top-players {
+        gap: 4px;
+        justify-content: center;
+        overflow-x: visible;
+        /* убрал горизонтальный скроллер */
+        padding-bottom: 4px;
+        margin-bottom: 4px;
+    }
+
+    .top-player-card {
+        width: 120px;
+        padding: 4px 3px;
+        border-radius: 8px;
+        /* убрал scroll-snap-align так как скроллер удален */
+    }
+
+    .player-avatar-container {
+        width: 60px;
+        height: 32px;
+        margin-bottom: 6px;
+    }
+
+    .player-avatar,
+    .avatar-circle {
+        width: 32px;
+        height: 34px;
+        font-size: 10px;
+    }
+
+    .wreath-left,
+    .wreath-right {
+        width: 18px;
+        height: 18px;
+        top: 10%;
+    }
+
+    .wreath-left {
+        left: 3px;
+    }
+
+    .wreath-right {
+        right: 3px;
+    }
+
+    .lite-decoration {
+        position: absolute;
+        max-width: 80px;    /* Максимальная ширина */
+        max-height: 80px;    /* Максимальная высота */
+        bottom: -25px;
+        left: -15%;
+        z-index: -9999;
+        /* Максимально отрицательный z-index */
+    }
+
+    .star-decoration {
+        top: -12px;
+        min-width: 6px;
+        min-height: 6px;
+    }
+
+    .position-badge-image {
+        width: 24px;
+        height: auto;
+    }
+
+    .player-name {
+        font-size: 10px;
+        margin-bottom: 4px;
+    }
+
+    .player-amount {
+        margin-bottom: 3px;
+    }
+
+    .player-amount .amount {
+        font-size: 12px;
+    }
+
+    .player-amount .currency {
+        font-size: 9px;
+    }
+
+    .player-subtitle {
+        font-size: 8px;
+    }
+
+    .leaderboard-table {
+        flex: none ;
+        max-height: 425px ;
+        height: 425px ;
+        padding: 8px ;
+        overflow-y: auto ;
+        overflow-x: hidden ;
+        margin-bottom: -5px ;
+    }
+
+    .table-row {
+        padding: 12px 15px;
+    }
+
+    .row-avatar {
+        width: 35px;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .row-name {
+        font-size: 14px;
+    }
+
+    .row-amount .amount {
+        font-size: 14px;
+    }
+
+    .row-amount .currency {
+        font-size: 12px;
+    }
+}

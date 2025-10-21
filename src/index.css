@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Gotham', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body {
+  font-family: 'Inter', 'Gotham', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #0a0a0f;
+  color: white;
+  overflow-x: hidden;
+  /* Скрываем скроллер но оставляем возможность скроллить */
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE и Edge */
+}
+
+/* Скрываем скроллер везде */
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Скрываем скроллер в Webkit браузерах (Chrome, Safari) */
+body::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+}
+
+html::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+}
+
+/* Скрываем скроллер и на мобильной версии */
+@media (max-width: 456px) {
+  body {
+    height: 100vh;
+    /* Скрываем скроллер но оставляем возможность скроллить */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE и Edge */
+  }
+  
+  /* Скрываем скроллер в Webkit браузерах на мобильных */
+  body::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, p, span, div, button, input, label {
+  font-family: 'Inter', 'Gotham', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

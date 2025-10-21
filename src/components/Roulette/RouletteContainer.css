@@ -1,0 +1,669 @@
+.roulette-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 60vh;
+  margin: 0 auto;
+}
+
+/* Styles for multiple roulettes */
+.multiple-roulettes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 40px;
+  background: transparent;
+  border: 3px solid rgba(138, 43, 226, 0.5);
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow:
+    0 0 30px rgba(138, 43, 226, 0.3),
+    inset 0 0 20px rgba(0, 0, 0, 0.5);
+  opacity: 0.9;
+}
+
+/* Фиксированная позиция для одной рулетки (x1) */
+.multiplier-1 {
+  position: fixed;
+  top: calc(50% - 70px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  align-items: center;
+  min-height: fit-content;
+  padding: 20px 15px;
+  z-index: 50;
+}
+
+/* Фиксированная позиция для двух рулеток (x2) */
+.multiplier-2 {
+  position: fixed;
+  top: calc(50% - 80px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  align-items: center;
+  min-height: fit-content;
+  padding: 20px 15px;
+  z-index: 50;
+}
+
+/* Адаптивная высота для трех рулеток (x3) */
+.multiplier-3 {
+  min-height: fit-content;
+  padding: 20px;
+}
+
+
+
+.single-roulette-wrapper {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  background: rgba(20, 20, 40, 0.6);
+  border: 0px solid rgba(138, 43, 226, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Уменьшение высоты рулеток в зависимости от мультипликатора */
+.multiplier-3 .single-roulette-wrapper {
+  height: 140px;
+  /* Без изменений для x3 */
+}
+
+.multiplier-4 .single-roulette-wrapper {
+  height: 125px;
+  /* Уменьшение на 15px */
+  overflow: visible;
+  /* Позволяет стрелке выходить за границы */
+}
+
+.multiplier-5 .single-roulette-wrapper {
+  height: 100px;
+  /* Такой же размер контейнера как у x4 */
+  overflow: visible;
+  /* Позволяет стрелке выходить за границы */
+  transform: scaleY(0.92);
+  /* Уменьшение рулеток только по высоте на ~10px эквивалент */
+  transform-origin: center;
+}
+
+
+
+
+/* Styles for single roulette (backward compatibility) */
+.roulette-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 140px;
+  background: rgba(10, 10, 20, 0.8);
+  border: 3px solid rgba(138, 43, 226, 0.5);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow:
+    0 0 30px rgba(138, 43, 226, 0.3),
+    inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.roulette-pointer {
+  position: absolute;
+  top: 18px;
+  left: calc(50%);
+  transform: translateX(-50%);
+  width: 5px;
+  height: 74%;
+  background: linear-gradient(to top, white 0%, #7365DE 100%);
+  border-radius: 5px;
+  z-index: 1;
+  box-shadow:
+    0 0 10px rgba(115, 101, 222, 0.5),
+    0 0 20px rgba(115, 101, 222, 0.5);
+}
+
+
+
+.roulette-pointer::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: calc(50%);
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 0px solid transparent;
+  border-right: 0px solid transparent;
+  border-top: 0px solid #7365DE;
+  filter: drop-shadow(0 0 5px rgba(115, 101, 222, 0.8));
+  z-index: 1;
+}
+
+.roulette-pointer::after {
+  display: none;
+}
+
+/* Уникальные параметры стрелки и полоски для x4 */
+.multiplier-4 .roulette-pointer {
+  position: absolute;
+  top: 11px;
+  /* ПАРАМЕТР ДЛЯ ПОДТЯГИВАНИЯ ПОЛОСКИ ВВЕРХ: уменьшите значение (10px, 5px, 0px, -5px) чтобы подтянуть вверх */
+  left: calc(50%);
+  transform: translateX(-50%);
+  width: 5px;
+  height: 82%;
+  background: linear-gradient(to top, white 0%, #7365DE 100%);
+  border-radius: 5px;
+  z-index: 1;
+  box-shadow:
+    0 0 10px rgba(115, 101, 222, 0.5),
+    0 0 20px rgba(115, 101, 222, 0.5);
+}
+
+.multiplier-4 .roulette-pointer::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: calc(50%);
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 0px solid transparent;
+  border-right: 0px solid transparent;
+  border-top: 0px solid #7365DE;
+  filter: drop-shadow(0 0 5px rgba(115, 101, 222, 0.8));
+  z-index: 1;
+}
+
+.multiplier-4 .roulette-pointer::after {
+  display: none;
+}
+
+/* Уникальные параметры стрелки и полоски для x5 (точь-в-точь как x4) */
+.multiplier-5 .roulette-pointer {
+  position: absolute;
+  top: -1px;
+  /* ПАРАМЕТР ДЛЯ ПОДТЯГИВАНИЯ ПОЛОСКИ ВВЕРХ: уменьшите значение (10px, 5px, 0px, -5px) чтобы подтянуть вверх */
+  left: calc(50%);
+  transform: translateX(-50%);
+  width: 5px;
+  height: calc(100% + 1px);
+  background: linear-gradient(to top, white 0%, #7365DE 100%);
+  border-radius: 5px;
+  z-index: 1;
+  box-shadow:
+    0 0 10px rgba(115, 101, 222, 0.5),
+    0 0 20px rgba(115, 101, 222, 0.5);
+}
+
+.multiplier-5 .roulette-pointer::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: calc(50%);
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 0px solid transparent;
+  border-right: 0px solid transparent;
+  border-top: 0px solid #7365DE;
+  filter: drop-shadow(0 0 5px rgba(115, 101, 222, 0.8));
+  z-index: 1;
+}
+
+.multiplier-5 .roulette-pointer::after {
+  display: none;
+}
+
+/* Styles for case opening screen */
+.case-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  border: 3px solid rgba(138, 43, 226, 0.5);
+  border-radius: 20px;
+  box-shadow:
+    0 0 30px rgba(138, 43, 226, 0.3),
+    inset 0 0 20px rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  margin: 0 auto 10px auto;
+  padding: 40px;
+  gap: 30px;
+  opacity: 0.9;
+}
+
+.case-title {
+  font-size: 50px;
+  font-weight: 900;
+  color: white;
+  text-shadow:
+    0 0 20px rgba(138, 43, 226, 0.8),
+    0 4px 8px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  letter-spacing: 2px;
+  text-align: center;
+
+}
+
+.case-image {
+  width: 280px !important;
+  height: 280px !important;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+  animation: caseFloat 3s ease-in-out infinite;
+  z-index: 10;
+  position: relative;
+}
+
+@keyframes caseFloat {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+.controls-section {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.multiplier-btn {
+  padding: 15px 32px;
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid rgba(138, 43, 226, 0.5);
+  border-radius: 15px;
+  background: rgba(138, 43, 226, 0.2);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 85px;
+}
+
+.multiplier-btn:hover {
+  border-color: rgba(138, 43, 226, 0.8);
+  background: rgba(138, 43, 226, 0.3);
+  transform: translateY(-2px);
+}
+
+.multiplier-btn.active {
+  background: linear-gradient(45deg, #8a2be2, #9932cc);
+  border-color: #8a2be2;
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+}
+
+.open-btn {
+  padding: 15px 50px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(45deg, #8a2be2, #9932cc);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 25px rgba(138, 43, 226, 0.4);
+  min-width: 140px;
+}
+
+.open-btn:hover {
+  background: linear-gradient(45deg, #9932cc, #8a2be2);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(138, 43, 226, 0.6);
+}
+
+.open-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Styles for roulette controls */
+.roulette-controls {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.reset-btn {
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid rgba(138, 43, 226, 0.5);
+  border-radius: 25px;
+  background: rgba(138, 43, 226, 0.2);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+
+.reset-btn:hover:not(:disabled) {
+  background: linear-gradient(45deg, #8a2be2, #9932cc);
+  border-color: #8a2be2;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+}
+
+.reset-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* С
+тили для стоимости кейса */
+.case-cost {
+  background: rgba(138, 43, 226, 0.2);
+  border: 2px solid rgba(138, 43, 226, 0.5);
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 10px;
+}
+
+/* Styles for disabled button */
+.open-btn:disabled {
+  background: rgba(138, 43, 226, 0.3);
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+  box-shadow: none;
+}
+
+.open-btn:disabled:hover {
+  background: rgba(138, 43, 226, 0.3);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Styles for open button container */
+.open-btn-container {
+  position: relative;
+  display: inline-block;
+}
+
+.open-btn-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Custom tooltip styles */
+.custom-tooltip {
+  position: absolute;
+  bottom: calc(100% + 15px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.95) 0%, rgba(153, 50, 204, 0.95) 100%);
+  border: 2px solid rgba(138, 43, 226, 0.8);
+  border-radius: 15px;
+  padding: 12px 20px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow:
+    0 0 25px rgba(138, 43, 226, 0.6),
+    0 8px 20px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  animation: tooltipFadeIn 0.3s ease-out;
+  min-width: 120px;
+}
+
+.custom-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid rgba(138, 43, 226, 0.8);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.tooltip-label {
+  color: rgba(255, 255, 255, 0.8);
+  margin-right: 6px;
+}
+
+.tooltip-amount {
+  color: #ffffff;
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+.tooltip-currency {
+  color: #ffd700;
+  font-weight: 600;
+}
+
+.tooltip-signin {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Styles for cost information tooltip */
+.cost-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 15px;
+  z-index: 1000;
+  animation: tooltipFadeIn 0.3s ease-out;
+}
+
+.cost-tooltip-content {
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.95) 0%, rgba(153, 50, 204, 0.95) 100%);
+  border: 2px solid rgba(138, 43, 226, 0.8);
+  border-radius: 15px;
+  padding: 15px 25px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow:
+    0 0 25px rgba(138, 43, 226, 0.6),
+    0 8px 20px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.lina-currency {
+  background: linear-gradient(to bottom, #953FEC, #7365DE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.lina-currency-white {
+  color: white;
+}
+
+.cost-tooltip-content::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid rgba(138, 43, 226, 0.8);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+
+
+/* Mobile responsive adjustments */
+@media (max-width: 456px) {
+  .roulette-container {
+    padding: 10px 12px;
+    min-height: auto;
+    padding-top: 20px;
+  }
+
+  .multiple-roulettes {
+    padding: 10px;
+    border-width: 2px;
+    transform: scale(0.7);
+    transform-origin: center;
+    margin: 10px 0;
+  }
+
+  .multiplier-3 {
+    transform: scale(0.9) translateY(-10px) !important;
+    transform-origin: center;
+  }
+
+
+  .multiplier-4 {
+    transform: scale(0.9) translateY(-55px) !important;
+    transform-origin: center;
+  }
+
+
+  .multiplier-5 {
+    transform: scale(0.9) translateY(-55px) !important;
+    transform-origin: center;
+  }
+
+  .multiplier-1 {
+    position: fixed !important;
+    top: calc(50% ) !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 50 !important;
+  }
+
+  .multiplier-2 {
+    position: fixed !important;
+    top: calc(50%) !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 50 !important;
+  }
+
+  .single-roulette-wrapper {
+    height: 110px;
+  }
+
+  .case-display {
+    max-width: 100%;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .case-title {
+    font-size: 32px;
+  }
+
+  .case-image {
+    width: 180px !important;
+    height: 180px !important;
+  }
+
+  .controls-section {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto auto;
+    gap: 6px;
+    align-items: start;
+    justify-items: center;
+    align-content: start;
+    width: 100%;
+  }
+
+  /* Кнопки мультипликаторов в первом ряду */
+  .multiplier-btn:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .multiplier-btn:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .multiplier-btn:nth-child(3) {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .multiplier-btn:nth-child(4) {
+    grid-column: 4;
+    grid-row: 1;
+  }
+
+  .multiplier-btn:nth-child(5) {
+    grid-column: 5;
+    grid-row: 1;
+  }
+
+  /* Кнопка OPEN во втором ряду по центру */
+  .open-btn-container {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+  }
+
+  .multiplier-btn {
+    min-width: 55px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+
+  .open-btn {
+    min-width: 120px;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 12px;
+  }
+
+  .reset-btn {
+    padding: 12px 30px;
+    font-size: 16px;
+  }
+}
